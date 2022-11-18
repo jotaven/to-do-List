@@ -3,6 +3,6 @@
 
 <footer>
     <div class="footer">
-        <p><?php echo date('Y') ?> &copy; Desenvolvido por <b>João Victor Nunes</b> - Direitos Abertos</p>
+        <p><?php echo date('Y') ?> &copy; Desenvolvido por <b>José Wanderlan Pinto Ramalho Junior</b> - Direitos Abertos</p>
     </div>
 </footer>
