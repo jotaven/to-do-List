@@ -4,8 +4,8 @@ include('lib/conectar.php');
 include('lib/protecao.php');
 protecao(1);
 
-$sql_query = $mysqli->query("SELECT * FROM mensagens") or die($mysqli->error);
-$num_mensagens = $sql_query->num_rows;
+$sql_query = $mysqli->query("SELECT * FROM mensagens") or die($mysqli->error); // Seleciona todas as mensagens
+$num_mensagens = $sql_query->num_rows; // descobre quantas mensagens foram selecionadas
 
 
 ?>
@@ -27,13 +27,13 @@ $num_mensagens = $sql_query->num_rows;
             </thead>
             <tbody>
             <?php
-                if($num_mensagens == 0) { ?>
+                if($num_mensagens == 0) { // Caso não tenha nenhuma mensagem,   ?> 
                 <tr>
                     <td colspan="4">Nenhuma mensagem no banco de dados.</td>
                 </tr>
-            <?php } else {
-
-                while ($mensagem = $sql_query->fetch_assoc()) {
+            <?php } else { // Caso tenha,
+                     
+                while ($mensagem = $sql_query->fetch_assoc()) {  // Mostra todas as mensagens
                     ?>
                     <tr>
                         <th scope="row"> <?php echo $mensagem['id']; ?></th>

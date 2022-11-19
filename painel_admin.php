@@ -4,8 +4,8 @@ include('lib/conectar.php');
 include('lib/protecao.php');
 protecao(1);
 
-$sql_query = $mysqli->query("SELECT * FROM usuarios") or die($mysqli->error);
-$num_usuarios = $sql_query->num_rows;
+$sql_query = $mysqli->query("SELECT * FROM usuarios") or die($mysqli->error); // Seleciona todos os usuarios
+$num_usuarios = $sql_query->num_rows;  // descobre a quantidade de usuarios selecionados
 
 
 ?>
@@ -28,13 +28,13 @@ $num_usuarios = $sql_query->num_rows;
             </thead>
             <tbody>
             <?php
-                if($num_usuarios == 0) { ?>
+                if($num_usuarios == 0) {  // Caso não tenha usuarios, ?>
                 <tr>
                     <td colspan="4">Nenhum usuário foi cadastrado</td>
                 </tr>
-            <?php } else {
+            <?php } else {                // Caso tenha,
 
-                while ($usuario = $sql_query->fetch_assoc()) {
+                while ($usuario = $sql_query->fetch_assoc()) {  // Mostra o id, nome e email dos usuarios na tabela 
                     ?>
                     <tr>
                         <th scope="row"> <?php echo $usuario['id']; ?></th>

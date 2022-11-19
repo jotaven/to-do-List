@@ -1,14 +1,14 @@
 <?php 
 
 $hostname = "localhost";
-$username = "root";
+$username = "root"; // Nome padrão xampp
 $password = "";
-$database = "login";
+$database = "login"; // Nome do banco de dados.
 
-$mysqli = new mysqli($hostname, $username, $password, $database);
+$mysqli = new mysqli($hostname, $username, $password, $database); // Cria um novo banco de dados
 
-if ($mysqli->connect_errno) {
-    die("Falha ao conectar ao banco de dados? " . $mysqli->error);
+if ($mysqli->connect_errno) { // Caso tenha algum erro de conexão com o banco de dados, escreve a falha logo após.
+    die("Falha ao conectar ao banco de dados? " . $mysqli->error); 
 }
 
 ?>

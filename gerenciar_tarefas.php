@@ -5,9 +5,9 @@ protecao(0);
 
 $userid = $_SESSION['usuario'];
 
-$sql_usuarios = "SELECT * FROM tarefas WHERE userid = '$userid'";
-$sql_query = $mysqli->query($sql_usuarios) or die($mysqli->error);
-$num_usuarios = $sql_query->num_rows;
+$sql_code = "SELECT * FROM tarefas WHERE userid = '$userid'";   // Codigo SQL
+$sql_query = $mysqli->query($sql_code) or die($mysqli->error);  // Seleciona todas as tarefas do usuario logado.
+$num_tarefas = $sql_query->num_rows;                           // Vê quantas tarefas existem no banco de dados
 
 
 ?>
@@ -18,10 +18,10 @@ $num_usuarios = $sql_query->num_rows;
     <form action="" method="post">
         <h1>Minha lista</h1>
 
-        <?php if ($num_usuarios == 0) { ?>
-            <span style="color: red;">Nenhuma tarefa!</span>
-            <?php } else {
-            while ($tarefa = $sql_query->fetch_assoc()) { ?>
+        <?php if ($num_tarefas == 0) { ?>                       <!-- Caso não tenha tarefas, vai mostrar "Nenhuma tarefa!"  -->
+            <br><br><span style="color: red;">Nenhuma tarefa!</span>
+        <?php } else {
+            while ($tarefa = $sql_query->fetch_assoc()) { ?>    <!-- Enquanto tiver tarefas, vai mostra-las 1 por 1 -->
                 <label>
                     <a href="?pg=apagar_tarefa&id=<?php echo $tarefa['id'] ?>">
                         <input type="checkbox">
