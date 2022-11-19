@@ -3,7 +3,7 @@
 $hostname = "localhost";
 $username = "root"; // Nome padrão xampp
 $password = "";
-$database = "login"; // Nome do banco de dados.
+$database = "projetophp"; // Nome do banco de dados.
 
 $mysqli = new mysqli($hostname, $username, $password, $database); // Cria um novo banco de dados
 
